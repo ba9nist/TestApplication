@@ -15,6 +15,18 @@
 		9FAA34002080DFF9005FBA96 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA33FF2080DFF9005FBA96 /* FollowersViewController.swift */; };
 		9FAA34022080E004005FBA96 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA34012080E004005FBA96 /* UsersViewController.swift */; };
 		9FAA34052080E029005FBA96 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA34042080E029005FBA96 /* FilterViewController.swift */; };
+		9FAA340C2080E222005FBA96 /* BaseResponseModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA34082080E221005FBA96 /* BaseResponseModelProtocol.swift */; };
+		9FAA340D2080E222005FBA96 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA34092080E221005FBA96 /* HTTPClient.swift */; };
+		9FAA340E2080E222005FBA96 /* BaseRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA340A2080E222005FBA96 /* BaseRequestModel.swift */; };
+		9FAA34152080EB11005FBA96 /* NetworkErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA34142080EB11005FBA96 /* NetworkErrorProtocol.swift */; };
+		9FAA34172080EB23005FBA96 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA34162080EB23005FBA96 /* NetworkError.swift */; };
+		9FAA341D2080EC96005FBA96 /* GetFollowersRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA341C2080EC96005FBA96 /* GetFollowersRequestModel.swift */; };
+		9FAA341F2080ED2F005FBA96 /* GetUsersResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA341E2080ED2F005FBA96 /* GetUsersResponseModel.swift */; };
+		9FAA34212080ED43005FBA96 /* GetFollowersResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA34202080ED43005FBA96 /* GetFollowersResponseModel.swift */; };
+		9FAA34242080EF51005FBA96 /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA34232080EF51005FBA96 /* GithubUser.swift */; };
+		9FAA34282080F2D2005FBA96 /* GetUsersRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA34272080F2D2005FBA96 /* GetUsersRequestModel.swift */; };
+		9FAA342C2080FA79005FBA96 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAA342A2080FA79005FBA96 /* UserTableViewCell.swift */; };
+		9FAA342D2080FA79005FBA96 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FAA342B2080FA79005FBA96 /* UserTableViewCell.xib */; };
 		AF4E617B6C5FB9E02716E942 /* Pods_TestApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEC262E68CB2079115C5544B /* Pods_TestApplication.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +42,18 @@
 		9FAA33FF2080DFF9005FBA96 /* FollowersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		9FAA34012080E004005FBA96 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		9FAA34042080E029005FBA96 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		9FAA34082080E221005FBA96 /* BaseResponseModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponseModelProtocol.swift; sourceTree = "<group>"; };
+		9FAA34092080E221005FBA96 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		9FAA340A2080E222005FBA96 /* BaseRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequestModel.swift; sourceTree = "<group>"; };
+		9FAA34142080EB11005FBA96 /* NetworkErrorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkErrorProtocol.swift; sourceTree = "<group>"; };
+		9FAA34162080EB23005FBA96 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		9FAA341C2080EC96005FBA96 /* GetFollowersRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFollowersRequestModel.swift; sourceTree = "<group>"; };
+		9FAA341E2080ED2F005FBA96 /* GetUsersResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsersResponseModel.swift; sourceTree = "<group>"; };
+		9FAA34202080ED43005FBA96 /* GetFollowersResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFollowersResponseModel.swift; sourceTree = "<group>"; };
+		9FAA34232080EF51005FBA96 /* GithubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
+		9FAA34272080F2D2005FBA96 /* GetUsersRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetUsersRequestModel.swift; sourceTree = "<group>"; };
+		9FAA342A2080FA79005FBA96 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		9FAA342B2080FA79005FBA96 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		A6B169739B8D5BFB68B84DE2 /* Pods-TestApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestApplication/Pods-TestApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		EEC262E68CB2079115C5544B /* Pods_TestApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +108,9 @@
 		9FAA33E62080DD7C005FBA96 /* TestApplication */ = {
 			isa = PBXGroup;
 			children = (
+				9FAA34292080FA21005FBA96 /* UI */,
+				9FAA34222080EF37005FBA96 /* Model */,
+				9FAA34062080E1F1005FBA96 /* Networking */,
 				9FAA33F92080DF48005FBA96 /* Controllers */,
 				9FAA33E72080DD7C005FBA96 /* AppDelegate.swift */,
 				9FAA33EB2080DD7C005FBA96 /* Main.storyboard */,
@@ -127,6 +154,71 @@
 				9FAA34042080E029005FBA96 /* FilterViewController.swift */,
 			);
 			path = FilterViewController;
+			sourceTree = "<group>";
+		};
+		9FAA34062080E1F1005FBA96 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				9FAA34192080EC06005FBA96 /* Response */,
+				9FAA34182080EBFF005FBA96 /* Request */,
+				9FAA34112080EA5B005FBA96 /* Errors */,
+				9FAA340A2080E222005FBA96 /* BaseRequestModel.swift */,
+				9FAA34142080EB11005FBA96 /* NetworkErrorProtocol.swift */,
+				9FAA34082080E221005FBA96 /* BaseResponseModelProtocol.swift */,
+				9FAA34092080E221005FBA96 /* HTTPClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		9FAA34112080EA5B005FBA96 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				9FAA34162080EB23005FBA96 /* NetworkError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		9FAA34182080EBFF005FBA96 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				9FAA34272080F2D2005FBA96 /* GetUsersRequestModel.swift */,
+				9FAA341C2080EC96005FBA96 /* GetFollowersRequestModel.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		9FAA34192080EC06005FBA96 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				9FAA341E2080ED2F005FBA96 /* GetUsersResponseModel.swift */,
+				9FAA34202080ED43005FBA96 /* GetFollowersResponseModel.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		9FAA34222080EF37005FBA96 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9FAA34232080EF51005FBA96 /* GithubUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9FAA34292080FA21005FBA96 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9FAA342E2080FA7D005FBA96 /* UserTableViewCell */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		9FAA342E2080FA7D005FBA96 /* UserTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9FAA342A2080FA79005FBA96 /* UserTableViewCell.swift */,
+				9FAA342B2080FA79005FBA96 /* UserTableViewCell.xib */,
+			);
+			path = UserTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FAA342D2080FA79005FBA96 /* UserTableViewCell.xib in Resources */,
 				9FAA33F22080DD7C005FBA96 /* LaunchScreen.storyboard in Resources */,
 				9FAA33EF2080DD7C005FBA96 /* Assets.xcassets in Resources */,
 				9FAA33ED2080DD7C005FBA96 /* Main.storyboard in Resources */,
@@ -260,9 +353,20 @@
 			files = (
 				9FAA34002080DFF9005FBA96 /* FollowersViewController.swift in Sources */,
 				9FAA34022080E004005FBA96 /* UsersViewController.swift in Sources */,
+				9FAA340D2080E222005FBA96 /* HTTPClient.swift in Sources */,
+				9FAA341F2080ED2F005FBA96 /* GetUsersResponseModel.swift in Sources */,
+				9FAA342C2080FA79005FBA96 /* UserTableViewCell.swift in Sources */,
 				9FAA33E82080DD7C005FBA96 /* AppDelegate.swift in Sources */,
 				9FAA33FB2080DF67005FBA96 /* BaseViewController.swift in Sources */,
 				9FAA34052080E029005FBA96 /* FilterViewController.swift in Sources */,
+				9FAA340C2080E222005FBA96 /* BaseResponseModelProtocol.swift in Sources */,
+				9FAA34212080ED43005FBA96 /* GetFollowersResponseModel.swift in Sources */,
+				9FAA341D2080EC96005FBA96 /* GetFollowersRequestModel.swift in Sources */,
+				9FAA34282080F2D2005FBA96 /* GetUsersRequestModel.swift in Sources */,
+				9FAA340E2080E222005FBA96 /* BaseRequestModel.swift in Sources */,
+				9FAA34152080EB11005FBA96 /* NetworkErrorProtocol.swift in Sources */,
+				9FAA34242080EF51005FBA96 /* GithubUser.swift in Sources */,
+				9FAA34172080EB23005FBA96 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
