@@ -27,7 +27,7 @@ class UsersViewController: BaseViewController {
 
     func loadUsers() {
         let model = GetUsersRequestModel()
-        HTTPClient.sendRequest(model: model, handler: GetUsersResponseModel()) { (handler, error) in
+        HTTPClient.shared.sendRequest(model: model, handler: GetUsersResponseModel()) { (handler, error) in
             guard error == nil else {
                 print(error?.localizedDescription)
                 return

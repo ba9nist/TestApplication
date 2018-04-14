@@ -16,11 +16,7 @@ class GetUsersResponseModel: BaseResponseModelProtocol {
         print(json)
 
         let usersDicts = json as! [NSDictionary]
-
-        var counter = 0;
         for user in usersDicts {
-            print(counter)
-            counter = counter + 1
             users.append(GithubUser(json: user))
         }
         

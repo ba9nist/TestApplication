@@ -23,6 +23,13 @@ class UserTableViewCell: UITableViewCell {
 
         usernameLabel.text = username
         profileUrlLabel.text = profileUrl
+        avatarImageView.image = UIImage(named: "ic_defaultImage")
+
+        HTTPClient.shared.loadImage(url: imageUrl!, completionHandler: { (image, url) in
+            if url == imageUrl {
+                self.avatarImageView.image = image
+            }
+        })
     }
     
 }
