@@ -32,7 +32,6 @@ class UsersViewController: BaseViewController {
                 print(error?.localizedDescription)
                 return
             }
-            print("OK")
             self.users = handler!.users
             self.tableView.reloadData()
         }

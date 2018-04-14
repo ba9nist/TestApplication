@@ -27,7 +27,12 @@ class UserTableViewCell: UITableViewCell {
 
         HTTPClient.shared.loadImage(url: imageUrl!, completionHandler: { (image, url) in
             if url == imageUrl {
+                self.avatarImageView.alpha = 0
                 self.avatarImageView.image = image
+                UIView.animate(withDuration: 0.5) {
+                    self.avatarImageView.alpha = 1.0
+                }
+
             }
         })
     }
