@@ -10,7 +10,7 @@ import UIKit
 
 class GetFollowersRequestModel: BaseRequestModel {
 
-    init(user: String) {
-        super.init(apiMethod: "users/\(user)/followers", method: .get)
+    init(user: String, page: Int) {
+        super.init(apiMethod: "users/\(user)/followers?per_page=50&page=\(page)", method: .get)
     }
 }

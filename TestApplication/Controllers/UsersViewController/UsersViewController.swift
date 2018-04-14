@@ -37,12 +37,13 @@ class UsersViewController: BaseViewController {
         let model = GetUsersRequestModel(lastUserId: lastUserId)
         HTTPClient.shared.sendRequest(model: model, handler: GetUsersResponseModel()) { (handler, error) in
             guard error == nil else {
-                self.showError(error: error!)
+                self.showError(error: error!, retryBlock: {
+                    self.loadUsers(lastUserId: lastUserId)
+                })
                 return
             }
 
             self.updateData(list: handler!.users)
-
         }
     }
 
@@ -80,6 +81,12 @@ extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "UsersToFollowersSegue", sender: users[indexPath.row].login)
     }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (indexPath.row == self.users.count - 1) {
+            loadUsers(lastUserId: self.users.last!.id)
+        }
+    }
 }
 
 extension UsersViewController: UITableViewDataSource {
@@ -93,12 +100,6 @@ extension UsersViewController: UITableViewDataSource {
         let user = users[indexPath.row]
         cell.setupCell(username: user.login, profileUrl: user.htmlUrl, imageUrl: user.avatarUrl)
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if (indexPath.row == self.users.count - 1) {
-            loadUsers(lastUserId: self.users.last!.id)
-        }
     }
 }
 

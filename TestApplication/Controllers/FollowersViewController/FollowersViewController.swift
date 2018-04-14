@@ -17,6 +17,8 @@ class FollowersViewController: BaseViewController {
     var username: String!
     var followers = [GithubUser]()
 
+    var loadedPage = 1;
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,22 +28,51 @@ class FollowersViewController: BaseViewController {
 
         infoLabel.text = "Followers of user \(username!):"
 
-        loadFollowers()
+        loadFollowers(page: loadedPage)
+        loadedPage += 1
     }
 
-    func loadFollowers() {
-        let model = GetFollowersRequestModel(user: username)
+    func loadFollowers(page: Int) {
+        let model = GetFollowersRequestModel(user: username, page: page)
         HTTPClient.shared.sendRequest(model: model, handler: GetFollowersResponseModel()) { (handler, error) in
             guard error == nil else {
-                self.showError(error: error!)
+                self.showError(error: error!, retryBlock:nil)
                 return
             }
 
-            self.followers = handler!.users
-            self.tableView.reloadData()
+            print(handler!.users.count)
+            self.updateData(list: handler!.users)
         }
     }
 
+    func updateData(list: [GithubUser]) {
+
+        var indexPaths = [IndexPath]()
+        for (index, _) in list.enumerated() {
+            indexPaths.append(IndexPath(row: self.followers.count + index, section: 0))
+        }
+
+        let lastUserIndex = self.followers.count - 1
+        self.followers.append(contentsOf: list)
+
+        DispatchQueue.main.async {
+            self.tableView.insertRows(at: indexPaths, with: .none)
+            if lastUserIndex > 0 {
+                self.tableView.scrollToRow(at: IndexPath(row: lastUserIndex, section: 0), at: .bottom, animated: true)
+            }
+        }
+
+    }
+
+}
+
+extension FollowersViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (indexPath.row == self.followers.count - 1) {
+            loadFollowers(page: loadedPage)
+            loadedPage += 1
+        }
+    }
 }
 
 extension FollowersViewController: UITableViewDataSource {
@@ -57,4 +88,5 @@ extension FollowersViewController: UITableViewDataSource {
 
         return cell
     }
+
 }
