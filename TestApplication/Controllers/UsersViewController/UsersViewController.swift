@@ -22,6 +22,8 @@ class UsersViewController: BaseViewController {
         tableView.register(UINib(nibName: "UserTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
         tableView.tableFooterView = UIView()
 
+        self.title = "Github users"
+
         loadUsers()
     }
 
@@ -37,10 +39,21 @@ class UsersViewController: BaseViewController {
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "UsersToFollowersSegue") {
+            if let vc = segue.destination as? FollowersViewController {
+                vc.username = sender as! String
+                vc.title = "Followers"
+            }
+        }
+    }
+
 }
 
 extension UsersViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "UsersToFollowersSegue", sender: users[indexPath.row].login)
+    }
 }
 
 extension UsersViewController: UITableViewDataSource {

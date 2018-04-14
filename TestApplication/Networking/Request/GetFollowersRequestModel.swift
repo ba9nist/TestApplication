@@ -11,6 +11,6 @@ import UIKit
 class GetFollowersRequestModel: BaseRequestModel {
 
     init(user: String) {
-        super.init(apiMethod: "\(user)/followers", method: .get)
+        super.init(apiMethod: "users/\(user)/followers", method: .get)
     }
 }
