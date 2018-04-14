@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="MarkerFeltThin.ttf">
+            <string>MarkerFelt-Thin</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Followers View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -32,6 +37,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no data to show" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpy-QJ-4fe">
+                                <rect key="frame" x="47" y="350.5" width="280" height="30.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -42,11 +53,14 @@
                             <constraint firstItem="R0a-Wr-HEg" firstAttribute="top" secondItem="eP6-EK-ckU" secondAttribute="bottom" id="LhA-pd-8As"/>
                             <constraint firstItem="eP6-EK-ckU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QWI-jU-jUL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R0a-Wr-HEg" secondAttribute="trailing" id="U12-hE-8zj"/>
+                            <constraint firstItem="tpy-QJ-4fe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="n3f-JL-efq"/>
+                            <constraint firstItem="tpy-QJ-4fe" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="yiO-q7-sj4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="infoLabel" destination="eP6-EK-ckU" id="GPo-bo-xJk"/>
+                        <outlet property="noDataLabel" destination="tpy-QJ-4fe" id="pWh-2K-gJf"/>
                         <outlet property="tableView" destination="R0a-Wr-HEg" id="076-pO-8ZC"/>
                     </connections>
                 </viewController>
@@ -86,11 +100,19 @@
                                     <outlet property="delegate" destination="chx-Sb-rx9" id="0bj-pW-Pgh"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no data to show" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYC-1m-GNZ">
+                                <rect key="frame" x="48" y="351" width="280" height="30.5"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="IYC-1m-GNZ" firstAttribute="centerY" secondItem="bYk-J3-dHG" secondAttribute="centerY" id="BYs-WS-q3c"/>
                             <constraint firstItem="bYk-J3-dHG" firstAttribute="bottom" secondItem="QDp-kY-Jk5" secondAttribute="bottom" id="CL8-0T-PKh"/>
                             <constraint firstItem="bYk-J3-dHG" firstAttribute="trailing" secondItem="QDp-kY-Jk5" secondAttribute="trailing" id="JIv-Gc-IlO"/>
+                            <constraint firstItem="IYC-1m-GNZ" firstAttribute="centerX" secondItem="bYk-J3-dHG" secondAttribute="centerX" id="RYE-va-NSC"/>
                             <constraint firstItem="QDp-kY-Jk5" firstAttribute="top" secondItem="bYk-J3-dHG" secondAttribute="top" id="Xdf-bk-4zu"/>
                             <constraint firstItem="QDp-kY-Jk5" firstAttribute="leading" secondItem="bYk-J3-dHG" secondAttribute="leading" id="rt3-sq-TPR"/>
                         </constraints>
@@ -98,6 +120,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ywo-ga-Guf"/>
                     <connections>
+                        <outlet property="noDataLabel" destination="IYC-1m-GNZ" id="NbI-8G-DJN"/>
                         <outlet property="tableView" destination="QDp-kY-Jk5" id="D2Q-Dz-qtI"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="UsersToFollowersSegue" id="6Jh-M8-Lpn"/>
                     </connections>

@@ -13,7 +13,8 @@ class FollowersViewController: BaseViewController {
 
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var noDataLabel: UILabel!
+    
     var username: String!
     var followers = [GithubUser]()
 
@@ -36,11 +37,12 @@ class FollowersViewController: BaseViewController {
         let model = GetFollowersRequestModel(user: username, page: page)
         HTTPClient.shared.sendRequest(model: model, handler: GetFollowersResponseModel()) { (handler, error) in
             guard error == nil else {
-                self.showError(error: error!, retryBlock:nil)
+                self.showError(error: error!, retryBlock: {
+                    self.loadFollowers(page: page)
+                })
                 return
             }
 
-            print(handler!.users.count)
             self.updateData(list: handler!.users)
         }
     }
@@ -56,6 +58,12 @@ class FollowersViewController: BaseViewController {
         self.followers.append(contentsOf: list)
 
         DispatchQueue.main.async {
+            if self.followers.count == 0 {
+                self.noDataLabel.isHidden = false
+            } else {
+                self.noDataLabel.isHidden = true
+            }
+
             self.tableView.insertRows(at: indexPaths, with: .none)
             if lastUserIndex > 0 {
                 self.tableView.scrollToRow(at: IndexPath(row: lastUserIndex, section: 0), at: .bottom, animated: true)

@@ -12,7 +12,8 @@ class UsersViewController: BaseViewController {
     private let identifier = "UsersViewControllerCell"
 
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var noDataLabel: UILabel!
+    
     var users = [GithubUser]()
 
     override func viewDidLoad() {
@@ -58,6 +59,12 @@ class UsersViewController: BaseViewController {
         self.users.append(contentsOf: list)
 
         DispatchQueue.main.async {
+            if self.users.count == 0 {
+                self.noDataLabel.isHidden = false
+            } else {
+                self.noDataLabel.isHidden = true
+            }
+
             self.tableView.insertRows(at: indexPaths, with: .none)
             if lastUserIndex > 0 {
                 self.tableView.scrollToRow(at: IndexPath(row: lastUserIndex, section: 0), at: .bottom, animated: true)
