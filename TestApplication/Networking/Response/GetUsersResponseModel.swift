@@ -13,7 +13,6 @@ class GetUsersResponseModel: BaseResponseModelProtocol {
     var users = [GithubUser]()
 
     func parseJSON(json: Any) {
-        print(json)
 
         let usersDicts = json as! [NSDictionary]
         for user in usersDicts {

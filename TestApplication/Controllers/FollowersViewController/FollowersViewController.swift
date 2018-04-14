@@ -33,7 +33,7 @@ class FollowersViewController: BaseViewController {
         let model = GetFollowersRequestModel(user: username)
         HTTPClient.shared.sendRequest(model: model, handler: GetFollowersResponseModel()) { (handler, error) in
             guard error == nil else {
-                print(error?.localizedDescription)
+                self.showError(error: error!)
                 return
             }
 

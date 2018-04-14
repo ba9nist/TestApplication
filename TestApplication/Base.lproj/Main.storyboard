@@ -79,35 +79,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QDp-kY-Jk5">
-                                <rect key="frame" x="0.0" y="88" width="375" height="579"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="chx-Sb-rx9" id="9cj-qh-6zx"/>
                                     <outlet property="delegate" destination="chx-Sb-rx9" id="0bj-pW-Pgh"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Users since 20/10/1970:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5N-tu-Fzn">
-                                <rect key="frame" x="0.0" y="64" width="375" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bYk-J3-dHG" firstAttribute="bottom" secondItem="QDp-kY-Jk5" secondAttribute="bottom" id="CL8-0T-PKh"/>
-                            <constraint firstItem="QDp-kY-Jk5" firstAttribute="top" secondItem="I5N-tu-Fzn" secondAttribute="bottom" id="IgY-L0-Eyk"/>
                             <constraint firstItem="bYk-J3-dHG" firstAttribute="trailing" secondItem="QDp-kY-Jk5" secondAttribute="trailing" id="JIv-Gc-IlO"/>
-                            <constraint firstItem="I5N-tu-Fzn" firstAttribute="top" secondItem="bYk-J3-dHG" secondAttribute="top" id="Oof-f7-IaO"/>
-                            <constraint firstItem="I5N-tu-Fzn" firstAttribute="leading" secondItem="bYk-J3-dHG" secondAttribute="leading" id="QaF-gV-hmB"/>
+                            <constraint firstItem="QDp-kY-Jk5" firstAttribute="top" secondItem="bYk-J3-dHG" secondAttribute="top" id="Xdf-bk-4zu"/>
                             <constraint firstItem="QDp-kY-Jk5" firstAttribute="leading" secondItem="bYk-J3-dHG" secondAttribute="leading" id="rt3-sq-TPR"/>
-                            <constraint firstItem="bYk-J3-dHG" firstAttribute="trailing" secondItem="I5N-tu-Fzn" secondAttribute="trailing" id="rxZ-J6-qPo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bYk-J3-dHG"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ywo-ga-Guf"/>
                     <connections>
-                        <outlet property="infoLabel" destination="I5N-tu-Fzn" id="t6u-8R-PIg"/>
                         <outlet property="tableView" destination="QDp-kY-Jk5" id="D2Q-Dz-qtI"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="UsersToFollowersSegue" id="6Jh-M8-Lpn"/>
                     </connections>

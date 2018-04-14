@@ -10,7 +10,7 @@ import UIKit
 
 class GetUsersRequestModel: BaseRequestModel {
     
-    init() {
-        super.init(apiMethod: "users", method: .get)
+    init(lastUserId: Int) {
+        super.init(apiMethod: "users?per_page=50&since=\(lastUserId)", method: .get)
     }
 }

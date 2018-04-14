@@ -12,7 +12,6 @@ class GetFollowersResponseModel: BaseResponseModelProtocol {
     var users = [GithubUser]()
 
     func parseJSON(json: Any) {
-        print(json)
 
         let usersDicts = json as! [NSDictionary]
 

@@ -11,11 +11,10 @@ import UIKit
 class UsersViewController: BaseViewController {
     private let identifier = "UsersViewControllerCell"
 
-    @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
 
     var users = [GithubUser]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,19 +23,46 @@ class UsersViewController: BaseViewController {
 
         self.title = "Github users"
 
-        loadUsers()
+        loadUsers(lastUserId: 0)
     }
 
-    func loadUsers() {
-        let model = GetUsersRequestModel()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let selectedRowPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedRowPath, animated: true)
+        }
+    }
+
+    func loadUsers(lastUserId: Int) {
+        let model = GetUsersRequestModel(lastUserId: lastUserId)
         HTTPClient.shared.sendRequest(model: model, handler: GetUsersResponseModel()) { (handler, error) in
             guard error == nil else {
-                print(error?.localizedDescription)
+                self.showError(error: error!)
                 return
             }
-            self.users = handler!.users
-            self.tableView.reloadData()
+
+            self.updateData(list: handler!.users)
+
         }
+    }
+
+    func updateData(list: [GithubUser]) {
+
+        var indexPaths = [IndexPath]()
+        for (index, _) in list.enumerated() {
+            indexPaths.append(IndexPath(row: self.users.count + index, section: 0))
+        }
+
+        let lastUserIndex = self.users.count - 1
+        self.users.append(contentsOf: list)
+
+        DispatchQueue.main.async {
+            self.tableView.insertRows(at: indexPaths, with: .none)
+            if lastUserIndex > 0 {
+                self.tableView.scrollToRow(at: IndexPath(row: lastUserIndex, section: 0), at: .bottom, animated: true)
+            }
+        }
+
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,6 +93,12 @@ extension UsersViewController: UITableViewDataSource {
         let user = users[indexPath.row]
         cell.setupCell(username: user.login, profileUrl: user.htmlUrl, imageUrl: user.avatarUrl)
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (indexPath.row == self.users.count - 1) {
+            loadUsers(lastUserId: self.users.last!.id)
+        }
     }
 }
 
